@@ -39,7 +39,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav mr-auto-navbav">
         <li class="nav-item d-none d-sm-inline-block">
-         <span class="nav-link">   اليوم : {{Carbon::today()->isoFormat('dddd')}} {{Carbon::today()->format('Y-m-d')}}</span>
+         <span class="nav-link">   اليوم : {{Carbon::now()}} </span>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">

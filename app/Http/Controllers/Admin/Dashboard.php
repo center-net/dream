@@ -13,7 +13,7 @@ class Dashboard extends Controller {
 	public function home() {
         $updated_at = Ticket::where('status','5')->orwhere('status','6')->whereDate('updated_at','LIKE','%' . Carbon::today()->format('Y-m-d') . '%')->count();
         $created_at = Ticket::whereDate('updated_at',Carbon::today())->where('status','!=','4')->where('status','!=','6')->count();
-        $from = Carbon::now(new \DateTimeZone('Asia/Gaza'))->startOfWeek(Carbon::SATURDAY);
+        $from = Carbon::now()->startOfWeek(Carbon::SATURDAY);
         $to =  Carbon::parse($from)->addWeeks(1);
         $advances = Advance::whereBetween('created_at',[$from, $to])->get();
         $advances2 = Advance::whereNull('status')->get();
