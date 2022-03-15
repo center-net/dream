@@ -6,6 +6,10 @@
 * [it v 1.6.37]
 */
 return [
+	"merchants"=>["create","read","update","delete"],
+	"subcategories"=>["create","read","update","delete"],
+	"categories"=>["create","read","update","delete"],
+	"routers"=>["create","read","update","delete"],
 	"purchases"=>["create","read","update","delete"],
 	"funds"=>["create","read","update","delete"],
 	"advances"=>["create","read","update","delete"],

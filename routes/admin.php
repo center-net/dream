@@ -66,6 +66,15 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 		Route::resource('purchases','Admin\Purchases'); 
 		Route::post('purchases/multi_delete','Admin\Purchases@multi_delete'); 
 		Route::resource('salaryreports','Admin\SalaryReports');
+		Route::resource('routers','Admin\Routers'); 
+		Route::post('routers/multi_delete','Admin\Routers@multi_delete'); 
+		Route::post('routers/get/street/id','Admin\Routers@get_street_id'); 
+		Route::resource('categories','Admin\Categories'); 
+		Route::post('categories/multi_delete','Admin\Categories@multi_delete'); 
+		Route::resource('subcategories','Admin\Subcategories'); 
+		Route::post('subcategories/multi_delete','Admin\Subcategories@multi_delete'); 
+		Route::resource('merchants','Admin\Merchants'); 
+		Route::post('merchants/multi_delete','Admin\Merchants@multi_delete'); 
 		////////AdminRoutes/*End*///////////////
 	});
 

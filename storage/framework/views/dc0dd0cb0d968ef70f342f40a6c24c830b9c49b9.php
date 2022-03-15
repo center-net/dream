@@ -6,8 +6,8 @@
 <div class="col-md-4 col-sm-6 col-12">
     <div class="info-box" id="totale_salarie">
       <button class="info-box-icon bg-primary" id="rest<?php echo e($adminall->id); ?>" data-toggle="modal"  data-target="#exchange_rank<?php echo e($adminall->id); ?>">
-           <?php $__currentLoopData = $adminall->salarie_id; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-           <?php echo e($sal->salarie); ?>
+             <?php $__currentLoopData = $adminall->salarie_id; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           <?php echo e(($sal->salarie + $sal->previous_balance + $sal->reward) - $sal->discount); ?>
 
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </button>
@@ -81,7 +81,10 @@
         <span class="info-box-text">إجمالي السلف <span class="badge badge-danger" id="totale<?php echo e($adminall->id); ?>">0</span></span>
       </div>
       <span class="info-box-icon bg-primary">
-        <span class="info-box-icon bg-primary" style="font-size: large;">ترحيل</span>
+        <span class="info-box-icon bg-primary" style="font-size: large;" id="totale_rest<?php echo e($adminall->id); ?>">           <?php $__currentLoopData = $adminall->salarie_id; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           <?php echo e(($sal->salarie + $sal->previous_balance + $sal->reward) - $sal->discount); ?>
+
+           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></span>
       </span>
       <!-- /.info-box-content -->
     </div>
@@ -189,6 +192,9 @@
                                    $('#discount<?php echo e($adminall->id); ?>').each(function(index) {
                                         discount = parseFloat($(this).html());
                                     });
+                                    $('#totale_rest<?php echo e($adminall->id); ?>').each(function(index) {
+                                        totale_rest = parseFloat($(this).html());
+                                    });
                                     
                                     $('#totale_advan<?php echo e($adminall->id); ?> #advance<?php echo e($advan->admin_id); ?>').each(function(index) {
                                         advance += parseFloat($(this).html());
@@ -196,7 +202,7 @@
 
 
                                     $("#totale<?php echo e($adminall->id); ?>").html(advance);
-                                    total_advance = ((salarie + reward ) - (advance + discount));
+                                    total_advance = ((totale_rest) - (advance));
                                     
                                     if(total_advance >= 0){
 
@@ -289,7 +295,8 @@
                     </tr>
                   </thead>
                   <tbody id="totale_advan<?php echo e(admin()->user()->id); ?>">
-                    <?php $__currentLoopData = admin()->user()->Advances; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $advan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php $__currentLoopData = App\Models\Advance::whereBetween('created_at',[$from, $to])->where('admin_id',admin()->user()->id)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $advan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    
                     <tr>
                         <td>
                             <?php if($advan->status == 'yes'): ?>

@@ -1,5 +1,7 @@
 <?php
 		return [
+		"subcategories"	=>		"التصنيفات الفرعية",
+		"category_name"	=>		"إسم التصنيف",
 		"troubleshootings"	=>		"حل العطل",
 		"ticket_id"	=>		"العطل",
 		"diagnosis"	=>		"التشخيص",
@@ -137,7 +139,6 @@
 		"street_id"	=>		"الشارع",
 		"region_id"	=>		"المنطقة",
 		"type"	=>		"نوع الإشتراك",
-		"mobile"	=>		"رقم الجوال",
 		"subscriberName"	=>		"إسم المشترك",
 		"subscribers"	=>		"المشتركين",
 		"note"	=>		"ملاحظات",
@@ -148,11 +149,16 @@
 		"3"	=>		"مستعجلة",
 		"subscriber_id"	=>		"إسم المشترك",
 		"tickets"	=>		"التذاكر",
-		"no"	=>		"no",
-		"yes"	=>		"yes",
-		"status"	=>		"الحالة",
 		"quantity"	=>		"الكمية",
 		"item"	=>		"الصنف",
 		"purchases"	=>		"طلب مشتريات",
+		"categories"	=>		"التصنيفات",
+		"no"	=>		"غير متاح",
+		"yes"	=>		"متاح",
+		"status"	=>		"الحالة",
+		"category_id"	=>		"التصنيف",
+		"mobile"	=>		"رقم الجوال",
+		"mrchant_name"	=>		"إسم التاجر",
+		"merchants"	=>		"التجار",
 
 ];

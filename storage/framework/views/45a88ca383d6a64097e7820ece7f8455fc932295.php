@@ -44,4 +44,17 @@
     </div>
     <!-- /.info-box -->
   </div>
-<?php /**PATH /home/helplgvr/public_html/dream/resources/views/admin/layouts/statistics/module_counters.blade.php ENDPATH**/ ?>
+
+<!--categories_start-->
+<div class="col-md-3 col-sm-6 col-12">
+  <div class="info-box">
+    <span class="info-box-icon bg-primary"><i class="fa fa-icons"></i></span>
+    <div class="info-box-content">
+      <span class="info-box-text"><?php echo e(trans("admin.categories")); ?></span>
+      <span class="info-box-number"><?php echo e(mK(App\Models\Category::count())); ?></span>
+    </div>
+    <!-- /.info-box-content -->
+  </div>
+  <!-- /.info-box -->
+</div>
+<!--categories_end--><?php /**PATH /home/helplgvr/public_html/dream/resources/views/admin/layouts/statistics/module_counters.blade.php ENDPATH**/ ?>

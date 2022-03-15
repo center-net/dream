@@ -48,6 +48,12 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 			Route::post("troubleshootings/multi_delete","TroubleshootingsApi@multi_delete"); 
 			Route::apiResource("purchases","PurchasesApi", ["as" => "api.purchases"]); 
 			Route::post("purchases/multi_delete","PurchasesApi@multi_delete"); 
+			Route::apiResource("categories","CategoriesApi", ["as" => "api.categories"]); 
+			Route::post("categories/multi_delete","CategoriesApi@multi_delete"); 
+			Route::apiResource("subcategories","SubcategoriesApi", ["as" => "api.subcategories"]); 
+			Route::post("subcategories/multi_delete","SubcategoriesApi@multi_delete"); 
+			Route::apiResource("merchants","MerchantsApi", ["as" => "api.merchants"]); 
+			Route::post("merchants/multi_delete","MerchantsApi@multi_delete"); 
 			//Auth-Api-End//
 	});
 	// Insert your Api Here End //
